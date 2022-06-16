@@ -1,19 +1,41 @@
 -- *----To Check For Whom the Request is pending with for Regularization —*
 
+fe_wft_task_performer_t = taskPerformer
+fe_hrt_emp_summary_t = apr_summary
+fe_hrt_emp_job_t = apr_job
+fe_hri_person_t = per
+fe_hrt_emp_job_t = job
+fe_alm_shift_m = shfm
+fe_alm_shift_timing_t =  shft
+fe_alm_emp_attendance_request_t = lr
+fe_wft_task_t = taskT
+------------------------Doubts---------------------------
+1. What is the meaning of fe_get_cfg_lookup_meaning_f, is it a function, what is its defination.
+2. fe_alm_emp_attendance_request_t.15 (lr.15 ) meaning?
+
+
+
 
 SELECT
 	taskPerformer.a1 as `id`,
 	CONCAT(apr_summary.a4,'[',apr_summary.a5,']') AS `task_perfomer_name`,
 	CONCAT(IFNULL(TRIM(per.a5), ''), IF(IFNULL(TRIM(per.a6), '')= '', '', CONCAT(' ', TRIM(per.a6))), IF(IFNULL(TRIM(per.a7), '')= '', '', CONCAT(' ', TRIM(per.a7)))) as `emp_name`,
 	job.a4 AS `emp_code`,
+
 	CASE
-		WHEN IFNULL(shfm.a17, 0) != 1    
-     THEN CONCAT(DATE_FORMAT(IFNULL(lr.a6, ''), '%d-%b-%y'), ', In Time - ', DATE_FORMAT(lr.a17, '%H:%i'), ', Out Time - ',
-                    DATE_FORMAT(lr.a18, '%H:%i'))
-		WHEN shfm.a17 = 1 THEN CONCAT(DATE_FORMAT(IFNULL(lr.a6, ''), '%d-%b-%y'), IFNULL(CONCAT(', First Half In Time - ', DATE_FORMAT(IFNULL(lr.a17, ''), '%H:%i')), ''),  
-                   IFNULL(CONCAT(', First Half Out Time - ', DATE_FORMAT(IFNULL(lr.a18, ''), '%H:%i')), ''), '<br />', IFNULL(CONCAT('Second Half In Time - ', DATE_FORMAT(IFNULL(lr.a24, ''), '%H:%i')), ''), IFNULL(CONCAT(', Second Half Out Time - ', DATE_FORMAT(IFNULL(lr.a25, ''), '%H:%i')), ''))
+		WHEN IFNULL(shfm.a17, 0) != 1 --when it is not null, shfm.a17 break time.   
+     THEN CONCAT(DATE_FORMAT(IFNULL(lr.a6, ''), '%d-%b-%y'), 
+	 ', In Time - ', DATE_FORMAT(lr.a17, '%H:%i'),
+	  ', Out Time - ', DATE_FORMAT(lr.a18, '%H:%i'))
+		WHEN shfm.a17 = 1 
+		THEN CONCAT(DATE_FORMAT(IFNULL(lr.a6, ''), '%d-%b-%y'),
+		 IFNULL(CONCAT(', First Half In Time - ', DATE_FORMAT(IFNULL(lr.a17, ''), '%H:%i')), ''),  
+        IFNULL(CONCAT(', First Half Out Time - ', DATE_FORMAT(IFNULL(lr.a18, ''), '%H:%i')), ''), '<br />',
+		 IFNULL(CONCAT('Second Half In Time - ', DATE_FORMAT(IFNULL(lr.a24, ''), '%H:%i')), ''), IFNULL(CONCAT(', Second Half Out Time - ', DATE_FORMAT(IFNULL(lr.a25, ''), '%H:%i')), ''))
 	END as `desc`,
-	CONCAT( IFNULL( CONCAT('Late Coming-', fe_get_cfg_lookup_meaning_f(taskT.cl, 4000013, lr.a21), ', '), '' ), IFNULL( CONCAT('Early Leaving-', fe_get_cfg_lookup_meaning_f(taskT.cl, 4000014, lr.a22), ', '), '' ),
+
+	CONCAT( IFNULL( CONCAT('Late Coming-', fe_get_cfg_lookup_meaning_f(taskT.cl, 4000013, lr.a21), ', '), '' ),
+	 		IFNULL( CONCAT('Early Leaving-', fe_get_cfg_lookup_meaning_f(taskT.cl, 4000014, lr.a22), ', '), '' ),
   IFNULL(CONCAT('Comments-', lr.a23), '') ) as `change_reason`,
 	lr.a1 as `request_id`,
 	lr.a23 as `comment`,
