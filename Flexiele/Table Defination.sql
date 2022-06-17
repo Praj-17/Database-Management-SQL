@@ -1,4 +1,4 @@
-use dev_test;
+use dev;
 SELECT 
         t4.cl, t4.lg,   t2.label, t3.col_name, t1.name, t1.lov, t3.key_type,t3.fk_table,t3.fk_column
 FROM    
@@ -7,7 +7,7 @@ FROM
                 JOIN `fe_core_table_col_g` t3 ON(t3.id = t1.db_col_id)
                 JOIN `fe_core_table_g` t4 ON(t4.id = t3.table_id)
 WHERE 1
-    AND t4.name =  'fe_hrt_emp_job_t'
+    AND t4.name =  'fe_alm_weeklyoff_m'
 #change table name
     AND t1.cl = 1
      -- AND t4.lg = 2
