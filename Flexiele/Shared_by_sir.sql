@@ -8,7 +8,7 @@ FROM
                 JOIN `fe_core_table_col_g` t3 ON(t3.id = t1.db_col_id)
                 JOIN `fe_core_table_g` t4 ON(t4.id = t3.table_id)
 WHERE 1
-    AND t4.name =  'fe_hrt_emp_job_t'
+    AND t4.name =  'fe_hrt_emp_summary_t'
 #change table name
     AND t1.cl = 1
      -- AND t4.lg = 2
