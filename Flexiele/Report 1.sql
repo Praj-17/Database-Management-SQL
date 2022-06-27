@@ -1,62 +1,35 @@
 
--- Doubts
--- 1. where to find state, city, region from given location
--- 2. Unable to fetch manager details(proper table not found)
+select e.a4 'Employee number',
+  DATE_FORMAT(t.a4, '%d-%b-%y') 'Group Date of joining',
+  DATE_FORMAT(t.a5, '%d-%b-%y') 'Joining Date',
+  DATE_FORMAT(p.a9, '%d-%b-%y') 'Date Of Birth', 
 
-select e.a4 employee_no,
-e.a2 as emp_id,
-t.a4 as 'Group Doj' ,
-
-
-(select l.meaning from fe_core_lookup_m l
- where 1 AND `category` = 'HRT_EMPLOYMENT_STATUS' AND `active` = 1 and l.code = e.a6 
- ORDER BY `order` ) as employment_status, 
+ les.meaning as 'Employment Status',
  
-CONCAT(p.a5, ' ', p.a7) as Full_Name,
-t.a5 as joining_date,
-p.a9 as DOB,
-(SELECT t1.a3 as 'meaning' FROM fe_org_unit_m t1 
-JOIN DV_DAG0000002_DV dag 
-ON (
-       t1.cl = dag.cl 
-       AND t1.a1 = dag.ou1 
-       AND dag.ou_type = 'ou1'
-     ) 
-JOIN fe_cfg_org_unit_type_m t2 
-     ON (t2.a1 = t1.a2 
-       AND t2.a5 = 1) 
- WHERE 1 
-   AND t2.a4 = 'OUM0000001' 
-   AND t1.a6 = 1 
-   and t1.a1= t.a26 ) as buisness_group,
-(SELECT 
- l.a3 AS meaning
-FROM fe_org_unit_m l
-  WHERE 1
- AND l.a4 LIKE '%LEC%'
-  AND l.a6 = 1
-  and l.a1 = t.a27) as Legal_Entity,
+CONCAT(p.a5, ' ', p.a7) as 'Full Name',
+
+org_bg.a3 'Business Group',
+org_le.a3 'Legal Entity', 
+  e2.a4 'Manager Name',
+  e2.a8 'Manager Email', 
+
 org_dsg.a3 'Designation',
 org_dp.a3 'Department',
 org_sdp.a3 'Sub Department',
 org_loc.a3 'Location',
+  state.a3 'State',
+  org_loc_d.a5 'City',
+org_loc_d.a8 'Region',
 
-
-
-(select l.a4 from fe_glb_lookup_m l where l.a2 = 1000001 and l.a3=p.a8 and l.a7=1) gender,
-c.a3 as mob_no,
-c.a5 as emg_no,
-t.a9 as 'Resignation type',
+l_gender.a4 as 'Gender',
+c.a3 as 'mob_no',
+c.a5 as 'emg_no',
 t.a15 as 'Exit Date',
 t.a15 as 'Resignation Date',
-t.a11 as official_email,
-(SELECT
-   l.a4  FROM
-   fe_cfg_lookup_m l
- WHERE 1
-   AND l.a2 = 4000002
-   AND l.a7 = 1
-   and l.a3 = t.a9 limit 1) as exit_reason
+t.a11 as 'official_email',
+fe_get_cfg_lookup_meaning_f(t.cl,'4000002',t.a9) 'Resignation Type',
+t.a10 as 'Exit Reason'
+
 
 
 from  fe_hrt_emp_job_t e
@@ -69,9 +42,33 @@ LEFT JOIN fe_org_unit_m org_sdp
     ON (e.ou7 = org_sdp.a1)
 LEFT JOIN fe_org_unit_m org_loc
     ON (e.ou9 = org_loc.a1)
+LEFT JOIN fe_org_unit_detail_m org_loc_d
+    ON (org_loc_d.a2 = org_loc.a1)
+LEFT JOIN fe_glb_state_g state
+    ON (state.a1 = org_loc_d.a4)
+
+
 LEFT JOIN fe_org_unit_m org_dsg
     ON (e.ou10 = org_dsg.a1)
-LEFT JOIN fe_hri_person_t p2
-    ON (p.a1 = t.a2)
+JOIN fe_wfm_approver_type_m apt
+     ON (
+       t.cl = apt.cl
+       AND apt.a4 = 'APT0000001'
+     )
+LEFT JOIN fe_wft_approver_t apr
+    ON (t.a1 = apr.a2 AND apr.a3 = apt.a1)
+LEFT JOIN fe_hrt_emp_summary_t e2
+    ON (e2.a3 = apr.a5)
+LEFT Join fe_core_lookup_m les
+	on (les.code = e.a6 and les.category = 'HRT_EMPLOYMENT_STATUS' and  `active` = 1)
+LEFT JOIN fe_org_unit_m org_bg
+    ON (e.ou1 = org_bg.a1)
+LEFT JOIN fe_org_unit_m org_le
+    ON (e.ou2 = org_le.a1)
+LEFT JOIN fe_glb_lookup_m l_gender
+    on (l_gender.a2 = 1000001 and l_gender.a3=p.a8 and l_gender.a7=1)
+
+
+
 
  
