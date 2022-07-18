@@ -40,26 +40,26 @@ BEGIN
 		IF l_freq = "Daily" THEN
 			SET l_loop_start_date = p_start_date;
 			SET l_loop_end_date = p_end_date;
-			SET l_loop_date = DATE_ADD(l_end_date , INTERVAL l_interval DAY);
+			SET l_loop_date = DATE_ADD(DATE_FORMAT(l_end_date, '%Y/%m/%d') , INTERVAL l_interval DAY);
 		ELSEIF l_freq = 'Weekly'
         THEN
 			IF l_loop_date = l_start_date or dayname(l_loop_date) = 'Monday'
             THEN
 				 SET l_loop_start_date = l_loop_date;
-				 SET l_loop_end_date = DATE_ADD(l_loop_date, INTERVAL ((l_interval *7)-1) DAY); #week start date will be monday and end date will sunday
-				 SET l_loop_date = DATE_ADD(l_loop_date , INTERVAL (l_interval *7) DAY) ; #e.g if interval is 2, then next to next monday 
+				 SET l_loop_end_date = DATE_ADD(DATE_FORMAT(l_loop_date, '%Y/%m/%d'), INTERVAL ((l_interval *7)-1) DAY); #week start date will be monday and end date will sunday
+				 SET l_loop_date = DATE_ADD(DATE_FORMAT(l_loop_date, '%Y/%m/%d') , INTERVAL (l_interval *7) DAY) ; #e.g if interval is 2, then next to next monday 
 			ELSE
-				SET l_loop_date = DATE_ADD(l_loop_date , INTERVAL 1 DAY);
+				SET l_loop_date = DATE_ADD(DATE_FORMAT(l_loop_date, '%Y/%m/%d') , INTERVAL 1 DAY);
 			END IF;
 		ELSEIF l_freq = 'Monthly'
         THEN
 			IF l_loop_date = l_start_date or day(l_loop_date) = 1 
             THEN 
 				SET l_loop_start_date = l_loop_date;
-				SET l_loop_end_date = last_day(l_loop_date);
-				SET l_loop_date = DATE_ADD(last_day(l_loop_date), INTERVAL 1  DAY) ; #e.g. if current month is jan  and interval 2 then next month will be mar
+				SET l_loop_end_date = last_day(DATE_FORMAT(l_loop_date, '%Y/%m/%d'));
+				SET l_loop_date = DATE_ADD(last_day(DATE_FORMAT(l_loop_date, '%Y/%m/%d')), INTERVAL 1  DAY) ; #e.g. if current month is jan  and interval 2 then next month will be mar
 			ELSE
-				SET l_loop_date = DATE_ADD(l_loop_date , INTERVAL  1 DAY);
+				SET l_loop_date = DATE_ADD(DATE_FORMAT(l_loop_date, '%Y/%m/%d') , INTERVAL  1 DAY);
 			END IF;
         END IF;
 	END WHILE;
