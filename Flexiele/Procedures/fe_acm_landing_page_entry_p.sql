@@ -1,5 +1,6 @@
 CREATE DEFINER=`prajwal.waykos`@`%` PROCEDURE `fe_acm_landing_page_entry_p`(     
 	  IN p_config_id int,
+      IN p_client_id int,
 	  IN p_flexi1 varchar(10),
 	  IN p_flexi2 varchar(10),
 	  OUT o_status varchar(10))
@@ -14,6 +15,21 @@ BEGIN
 			l_loop_date,
 			l_loop_start_date, 
 			l_loop_end_date VARCHAR(10);
+	DECLARE 
+			l_id DEFAULT 0;
+			l_emp_count,
+            l_emp_id,
+			l_start_count int(10);
+	DECLARE l_is_eligible BOOLEAN;
+	DECLARE c_emp_list CURSOR FOR
+		SELECT
+				a1 'emp_id'
+			FROM
+				fe_hrt_emp_employment_t
+		WHERE 1
+				AND ifnull(a8,'') = '' or a8 > l_start_date
+				AND cl  = p_client_id;
+
 	SELECT 
 			t.a1,
 			t.a9,
@@ -62,5 +78,35 @@ BEGIN
 				SET l_loop_date = DATE_ADD(DATE_FORMAT(l_loop_date, '%Y/%m/%d') , INTERVAL  1 DAY);
 			END IF;
         END IF;
+		OPEN c_emp_list;
+		SET l_emp_count = c_emp_list.rowcount;
+		SET l_start_count = 1;
+        WHILE l_start_count <= l_emp_count
+        DO 
+			FETCH c_emp_list into l_emp_id;
+            SET l_is_eligible = fe_hrt_check_employee_elig_p(
+															l_emp_id,
+                                                            l_elig_id,
+                                                            l_loop_end_date,
+                                                            NULL,
+                                                            NULL);
+			IF l_is_eligible
+            THEN 
+				SELECT a1 INTO l_id
+				FROM fe_acm_emp_landing_page_t
+				WHERE 1
+					AND	a2 = l_emp_id
+					AND a7 = l_loop_start_date
+					AND a8 = l_loop_end_date
+				IF l_id = 0
+				THEN
+					INSERT INTO fe_acm_emp_landing_page_t(l_emp_id, p_config_id, a4=1, l_start_date, l_end_date, who_created , when_created)
+				END IF;
+				
+            END IF;
+        
+        END WHILE;
+	
 	END WHILE;
+    SET o_status = 1
 END
