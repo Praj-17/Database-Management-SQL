@@ -29,14 +29,17 @@ FROM fe_hrt_emp_summary_t e
     ON (
      t2.a3 = tr.a3 
     AND tr.a2 = 1000057
-    AND tr.a7 = 1 )
+    AND tr.a7 = 1 
+    AND t1.a24 = 15)
  LEFT JOIN  fe_glb_lgs_lookup_m fy
     ON (
      t2.a4 = fy.a3 
     AND fy.a2 = 2000010
-    AND fy.a7 = 1 )
+    AND fy.a7 = 1
+    AND t1.a24 = 15 )
  LEFT JOIN  fe_glb_lgs_lookup_m p_type
     ON (
      t1.a3 = p_type.a3 
     AND p_type.a2 = 2000022
-    AND p_type.a7 = 1 )
+    AND p_type.a7 = 1
+    AND t1.a24 = 15 )

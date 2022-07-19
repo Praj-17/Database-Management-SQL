@@ -16,19 +16,20 @@ BEGIN
 			l_loop_start_date, 
 			l_loop_end_date VARCHAR(10);
 	DECLARE 
-			l_id DEFAULT 0;
+			l_id,
 			l_emp_count,
             l_emp_id,
 			l_start_count int(10);
 	DECLARE l_is_eligible BOOLEAN;
 	DECLARE c_emp_list CURSOR FOR
 		SELECT
-				a1 'emp_id'
+				a1
 			FROM
 				fe_hrt_emp_employment_t
 		WHERE 1
 				AND ifnull(a8,'') = '' or a8 > l_start_date
 				AND cl  = p_client_id;
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET o_status = 1;
 
 	SELECT 
 			t.a1,
@@ -46,7 +47,7 @@ BEGIN
 		FROM `fe_cfg_landing_page_t` t
 		LEFT JOIN `fe_glb_lookup_m`freq
 			ON (t.a7 =freq.a3  AND freq.a2 = 1000128 AND freq.a7 = 1)
- 		WHERE a1 = p_config_id;
+ 		WHERE t.a1 = p_config_id;
 
 	SET l_loop_date = l_start_date;
 	WHILE l_loop_date <= l_end_date
@@ -54,8 +55,8 @@ BEGIN
 		SET l_loop_start_date = NULL;
 		SET l_loop_end_date = NULL;
 		IF l_freq = "Daily" THEN
-			SET l_loop_start_date = p_start_date;
-			SET l_loop_end_date = p_end_date;
+			SET l_loop_start_date = l_start_date;
+			SET l_loop_end_date = l_end_date;
 			SET l_loop_date = DATE_ADD(DATE_FORMAT(l_end_date, '%Y/%m/%d') , INTERVAL l_interval DAY);
 		ELSEIF l_freq = 'Weekly'
         THEN
@@ -79,17 +80,22 @@ BEGIN
 			END IF;
         END IF;
 		OPEN c_emp_list;
-		SET l_emp_count = c_emp_list.rowcount;
+		SET l_emp_count = FOUND_ROWS();
 		SET l_start_count = 1;
+		
         WHILE l_start_count <= l_emp_count
         DO 
 			FETCH c_emp_list into l_emp_id;
-            SET l_is_eligible = fe_hrt_check_employee_elig_p(
-															l_emp_id,
-                                                            l_elig_id,
-                                                            l_loop_end_date,
-                                                            NULL,
-                                                            NULL);
+            CALL  fe_hrt_check_employee_elig_p(
+												l_emp_id,
+												l_elig_id,
+												l_loop_end_date,
+												NULL,
+												NULL,
+                                                l_is_eligible);
+            
+            
+			SET l_id = 0;
 			IF l_is_eligible
             THEN 
 				SELECT a1 INTO l_id
@@ -97,16 +103,20 @@ BEGIN
 				WHERE 1
 					AND	a2 = l_emp_id
 					AND a7 = l_loop_start_date
-					AND a8 = l_loop_end_date
+					AND a8 = l_loop_end_date;
 				IF l_id = 0
 				THEN
-					INSERT INTO fe_acm_emp_landing_page_t(l_emp_id, p_config_id, a4=1, l_start_date, l_end_date, who_created , when_created)
+					INSERT INTO fe_acm_emp_landing_page_t
+								(a2,a3,a4,a7,a8)
+						Values (l_emp_id, p_config_id, 1, l_start_date, l_end_date);
 				END IF;
 				
             END IF;
-        
+        set l_start_count = l_start_count +1;
         END WHILE;
+     
 	
 	END WHILE;
-    SET o_status = 1
+	CLOSE c_emp_list;
+    SET o_status = 1;
 END

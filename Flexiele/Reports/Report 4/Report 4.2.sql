@@ -22,29 +22,34 @@ FROM fe_hrt_emp_summary_t e
     ON (
     t2.a3 = tr.a3 
     AND tr.a2 = 1000057
-    AND tr.a7 = 1 )
+    AND tr.a7 = 1
+    AND t1.a24 = 17 )
  LEFT JOIN  fe_glb_lgs_lookup_m fy
     ON (
     t2.a4 = fy.a3 
     AND fy.a2 = 2000010
-    AND fy.a7 = 1 )
+    AND fy.a7 = 1 
+    AND t1.a24 = 17)
     
  LEFT JOIN  fe_glb_lgs_lookup_m city_type
     ON (
     t1.a3 = city_type.a3 
     AND city_type.a2 = 2000023
-    AND city_type.a7 = 1 )
+    AND city_type.a7 = 1 
+    AND t1.a24 = 17)
 
  LEFT JOIN fe_glb_lookup_m from_month
     ON (
     t1.a26 = from_month.a3 
     AND from_month.a2 = 1000007
-    AND from_month.a7 = 1 )
+    AND from_month.a7 = 1 
+    AND t1.a24 = 17)
  LEFT JOIN fe_glb_lookup_m to_month
     ON (
     t1.a30 = to_month.a3 
     AND to_month.a2 = 1000007
-    AND to_month.a7 = 1 )
+    AND to_month.a7 = 1 
+    AND t1.a24 = 17)
     
 -- jwpaj[ab
 
