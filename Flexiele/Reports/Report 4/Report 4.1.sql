@@ -1,4 +1,3 @@
-
 select  e.a5 'Employee Code',
 e.a4 'Full Name',
 tr.a4 'Tax Regime',
@@ -13,9 +12,9 @@ t1.a9 'Rejection Comments'
 
  FROM fe_pyt_emp_investment_detail_t t1  
 LEFT JOIN fe_pyt_emp_tax_declaration_t t2
-    ON (t1.a23 = t2.a1 )
+    ON (t1.a23 = t2.a1 and t1.cl =  t2.cl)
 LEFT JOIN fe_hrt_emp_summary_t e
-    ON (t2.a2 =e.a3)
+    ON (t2.a2 =e.a3 and t2.cl = e.cl)
 LEFT JOIN fe_glb_lookup_m tr
     ON (
      t2.a3 = tr.a3 
@@ -42,4 +41,4 @@ LEFT JOIN fe_glb_lookup_m tr
  AND  t1.a25 = i_subcat.a3 
  )
  WHERE t1.a24 not in (15,17)
-
+    and t1.cl = {session.clientId}

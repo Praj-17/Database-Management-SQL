@@ -19,10 +19,10 @@ act_availed.a4 'ITA Last Availed'
 
 
 FROM fe_pyt_emp_previous_income_t t1 
- LEFT JOIN fe_hrt_emp_summary_t e
-    ON (t1.a1 = e.a3 )
  LEFT JOIN fe_pyt_emp_tax_declaration_t t2
-    ON (t1.a3= t2.a1 )
+    ON (t1.a3= t2.a1 and t1.cl = t2.cl)
+LEFT JOIN fe_hrt_emp_summary_t e
+    ON (t2.a2 = e.a3 and t2.cl = e.cl)
  LEFT JOIN fe_glb_lookup_m tr
     ON (
      t2.a3 = tr.a3 
@@ -44,6 +44,7 @@ FROM fe_pyt_emp_previous_income_t t1
     AND act_availed.a2 = 2000010
     AND act_availed.a7 = 1 )
  LEFT JOIN fe_hri_emp_prev_employment_t employer_name
- on (e.a3 = employer_name.a2)
+ on (e.a3 = employer_name.a2 and e.cl = employer_name.cl)
 LEFT JOIN fe_pyt_emp_previous_income_t previous_income
-on (employer_name.a1 = previous_income.a2)
+on (employer_name.a1 = previous_income.a2 and employer_name.cl = previous_income.cl)
+WHERE t1.cl = {session.clientId}

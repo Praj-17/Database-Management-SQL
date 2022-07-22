@@ -15,9 +15,9 @@ t1.a8 'Approved amount',
 t1.a9 'Rejection Comments'
 FROM fe_pyt_emp_investment_detail_t t1  
 LEFT JOIN fe_pyt_emp_tax_declaration_t t2
-    ON (t1.a23 = t2.a1 )
+    ON (t1.a23 = t2.a1 and t1.cl = t2.cl)
 LEFT JOIN fe_hrt_emp_summary_t e
-    ON (t2.a2 =e.a3)
+    ON (t2.a2 =e.a3 and t2.cl = e.cl)
  LEFT JOIN fe_glb_lookup_m tr
     ON (
     t2.a3 = tr.a3 
@@ -51,9 +51,4 @@ LEFT JOIN fe_hrt_emp_summary_t e
     AND to_month.a7 = 1 
    )
    WHERE t1.a24 = 17
-
-    
-
-
-
-
+      AND t1.cl={session.clientId}
