@@ -9,7 +9,10 @@ select
     org_le.a3 'legal_entity', 
     org_dsg.a3 'designation',
     org_sdp.a3 'sub_department',
-    org_loc.a3 'location'
+    org_loc.a3 'location',
+    ctc.a13 'gross_m',
+    ctc.a13*12 'gross_y',
+    ctc.a14 'fixed_y',
 FROM fe_hrt_emp_job_t e
 LEFT JOIN fe_hri_person_t p 
     ON (e.a2 = p.a1 AND e.cl = p.cl)
@@ -43,6 +46,8 @@ LEFT JOIN fe_org_unit_m org_le
     ON (e.ou2 = org_le.a1 and e.cl = org_le.cl)
 LEFT JOIN fe_glb_lookup_m l_gender
     ON (l_gender.a2 = 1000001 and l_gender.a3=p.a8 and l_gender.a7=1)
+LEFT JOIN fe_pyt_emp_ctc_t ctc 
+    ON (ctc.a2 = e.a2)
 WHERE e.cl={session.clientId}
 
 
