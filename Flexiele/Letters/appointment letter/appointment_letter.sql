@@ -1,21 +1,23 @@
-
-
 select
     DATE_FORMAT(CURDATE(), '%d-%b-%y')as 'date',
-    e.a2 'employee_id',
+    e.a2 'emp_id',
     DATE_FORMAT(t.a5, '%d-%b-%y') 'joining_date',
-    CONCAT(p.a5, ' ', p.a7) as 'employee_name',
-    CONCAT(p.a6, ' ', p.a7) as 'father_name',
+    summ.a4 as 'employee_name',
+    f.a3 as 'father_name',
     org_le.a3 'legal_entity', 
     org_dsg.a3 'designation',
     org_sdp.a3 'sub_department',
     org_loc.a3 'location',
     ctc.a13 'gross_m',
     ctc.a13*12 'gross_y',
-    ctc.a14 'fixed_y',
+    ctc.a14 'fixed_y'
 FROM fe_hrt_emp_job_t e
+JOIN fe_hrt_emp_summary_t summ
+    on (summ.a3 = e.a3 and summ.cl = e.cl)
 LEFT JOIN fe_hri_person_t p 
     ON (e.a2 = p.a1 AND e.cl = p.cl)
+LEFT JOIN fe_hri_emp_family_t f
+    on (f.a2 = p.a1 AND fcont.a5 = 2 and f.cl = e.cl)
 LEFT JOIN fe_hrt_emp_employment_t as t 
     ON (p.a1 = t.a2 AND e.cl = t.cl)
 LEFT JOIN fe_hri_emp_contact_t as c
@@ -49,7 +51,3 @@ LEFT JOIN fe_glb_lookup_m l_gender
 LEFT JOIN fe_pyt_emp_ctc_t ctc 
     ON (ctc.a2 = e.a2)
 WHERE e.cl={session.clientId}
-
-
-
- 

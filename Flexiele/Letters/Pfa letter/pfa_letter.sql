@@ -1,4 +1,8 @@
 select e.a4 'full_name',
+e.a5 as 'emp_id',
+p.a5 as 'first_name',
+p.a6 as 'middle_name',
+p.a7 as 'last_name',
 DATE_FORMAT(p.a9, '%d-%b-%y') 'dob', 
 b.a6 'account_no',
 l_gender.a4 as 'gender',
@@ -6,7 +10,7 @@ l_ms.a4 as 'marital_status',
 c.a7 as 'address',
 org_le.a3 'legal_entity',
 c.a12 'address_c',
-currdate() as 'date'
+curentdate() as 'date'
 from fe_hrt_emp_summary_t e
 LEFT JOIN fe_hri_person_t p  -- for date of birth
     on (e.a2 = p.a1 and e.cl = p.cl)
