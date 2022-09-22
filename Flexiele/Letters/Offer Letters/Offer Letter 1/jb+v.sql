@@ -4,7 +4,9 @@ can.a9 as 'applicant.name',
 jt.a3 'job.title',
 can.a19 'offer.date_of_joining',
 FORMAT(ctc.a16,0) 'offer.annual_amount',
-ctc.a14 'offer.cf_fixed'
+ctc.a14 'offer.cf_fixed',
+ctc.a16 'offer.cf_ctc',
+ctc.a15 'offer.cf_variable_amount'
 from fe_rec_applicant_t apl
 LEFT JOIN fe_rec_candidate_info_t can
 on (can.a2 = apl.a3 and apl.cl = can.cl)
