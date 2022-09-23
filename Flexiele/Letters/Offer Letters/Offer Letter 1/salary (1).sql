@@ -12,9 +12,7 @@ JOIN fe_rec_candidate_offer_sal_t sal
 JOIN fe_pyt_sal_comp_m comp 
     ON (sal.a4 = comp.a1 AND sal.cl = comp.cl)
 WHERE 1 
- AND apl.cl = {session.clientId}
--- AND ctc.a7 = 1 
- -- AND apl.a5 BETWEEN ctc.a3 AND ctc.a4 
+ AND apl.cl = {sesssion.clientId}
   AND comp.a5 = 1 
   AND comp.a7 = 1 
   AND apl.a1 = {applicant_id}

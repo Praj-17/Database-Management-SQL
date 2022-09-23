@@ -1,0 +1,205 @@
+<style type="text/css">.td {
+    padding-left: 4px;
+    padding-right: 4px;
+    height: 23px;
+    border: 1px solid #ddd       
+}
+
+body{
+    color: #555;
+    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+}
+</style>
+<p style="text-align: center; font-weight: bold;"><span style="font-size:18px;">Salary Slip : {{p_month}}</span></p>
+
+<table border="0" class="e-rte-table" style="border-collapse:collapse;width:100%;">
+<tbody>
+    <tr>
+        <td class="td" style="width: 25%; ">Employee Name</td>
+        <td class="td" style="width: 25%;">{{name}}</td>
+        <td class="td" style="width: 25%; ">Employee Number</td>
+        <td class="td" style="width: 25%;">{{emp_code}}</td>
+    </tr>
+    <tr>
+        <td class="td" style="width: 25%; ">Designation</td>
+        <td class="td" style="width: 25%;">{{designation}}</td>
+        <td class="td" style="width: 25%; ">Date of Joining</td>
+        <td class="td" style="width: 25%;">{{doj}}</td>
+    </tr>
+    <tr>
+        <td class="td" style="width: 25%; ">Department</td>
+        <td class="td" style="width: 25%;">{{department}}</td>
+        <td class="td" style="width: 25%; ">LOP</td>
+        <td class="td" style="width: 25%;">{{lop_days}}</td>
+    </tr>
+    <tr>
+        <td class="td" style="width: 25%; ">Sub Department</td>
+        <td class="td" style="width: 25%;">{{sub_department}}</td>
+        <td class="td" style="width: 25%; ">LOPR</td>
+        <td class="td" style="width: 25%;">{{lopr}}</td>
+    </tr>
+    <tr>
+        <td class="td" style="width: 25%; ">Location</td>
+        <td class="td" style="width: 25%;">{{location}}</td>
+        <td class="td" style="width: 25%; ">Pay Days</td>
+        <td class="td" style="width: 25%;">{{pay_days}}</td>
+    </tr>
+    <tr>
+        <td class="td" style="width: 25%; ">PAN</td>
+        <td class="td" style="width: 25%;">{{pan}}</td>
+        <td class="td" style="width: 25%; ">Payment Method</td>
+        <td class="td" style="width: 25%;">{{payment_method}}</td>
+    </tr>
+    <tr>
+        <td class="td" style="width: 25%; ">UAN</td>
+        <td class="td" style="width: 25%;">{{uan}}</td>
+        <td class="td" style="width: 25%; ">Bank Name</td>
+        <td class="td" style="width: 25%;">{{bank_name}}</td>
+    </tr>
+    <tr>
+        <td class="td" style="width: 25%; ">PF Number</td>
+        <td class="td" style="width: 25%;">{{pf_no}}</td>
+        <td class="td" style="width: 25%; ">Bank A/C Number</td>
+        <td class="td" style="width: 25%;">{{acount_no}}</td>
+    </tr>
+    <tr>
+        <td class="td" style="width: 25%; ">ESI Number</td>
+        <td class="td" style="width: 25%;">{{esi_no}}</td>
+        <td class="td" style="width: 25%; ">IFSC Code</td>
+        <td class="td" style="width: 25%;">{{ifsc}}</td>
+    </tr>
+</tbody>
+</table>
+&nbsp;
+
+<div style="padding:2px;">
+<table border="0" style="border-collapse:collapse;width:100%;">
+<tbody>
+    <tr>
+        <td style="border: 1px solid #ccc;text-align: center; background-color: rgb(221, 221, 221);"><strong>Salary</strong></td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<div>
+<table border="0" cellpadding="2" cellspacing="0" style="border-collapse:collapse;width:100%;padding:0px;">
+<tbody>
+    <tr>
+        <td style="width: 60%; vertical-align: top;">
+        <table border="0" cellpadding="0" cellspacing="0" class="e-rte-table" style="border-collapse:collapse;float:left;width:100%;">
+            <thead>
+                <tr>
+                    <th colspan="5" style="border: 1px solid #ccc;vertical-align: middle; height: 22px; background-color: rgb(221, 221, 221);">Earnings</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="td" style="width: 40%; text-align: center; height: 22px; background-color: #dddddd;">Description</td>
+                    <td class="td" style="width: 20%; text-align: center; height: 22px; background-color: #dddddd;">Entitlement</td>
+                    <td class="td" style="width: 20%; text-align: center; height: 22px; background-color: #dddddd;">Amount</td>
+                    <td class="td" style="width: 20%; text-align: center; height: 22px; background-color: #dddddd;">Arrear</td>
+                </tr>
+                {{#each earning}}
+                <tr>
+                    <td class="td" style="width: 40%; text-align: right; height: 20px;">{{this.comp_desc}}</td>
+                    <td class="td" style="width: 20%; text-align: right; height: 20px;">{{this.comp_rate}}</td>
+                    <td class="td" style="width: 20%; text-align: right; height: 20px;">{{this.comp_amt}}</td>
+                    <td class="td" style="width: 20%; text-align: right; height: 20px;">{{this.comp_amt_ar}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        </td>
+        <td style="width: 40%; vertical-align: top;">
+        <table border="0" cellpadding="0" cellspacing="0" class="e-rte-table" style="border-collapse:collapse;float:right;width:100%;">
+            <thead>
+                <tr>
+                    <th colspan="4" style="border: 1px solid #ccc;vertical-align: middle;height: 22px; background-color: rgb(221, 221, 221);">Deductions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="td" style="width: 40%; text-align: center;height: 22px; background-color: #dddddd;">Description</td>
+                    <td class="td" style="width: 30%; text-align: center;height: 22px; background-color: #dddddd;">Amount</td>
+                    <td class="td" style="width: 30%; text-align: center;height: 22px; background-color: #dddddd;">Arrear</td>
+                </tr>
+                {{#each deduction}}
+                <tr>
+                    <td class="td" style="width: 40%; text-align: right;height: 20px;">{{this.comp_desc}}</td>
+                    <td class="td" style="width: 30%; text-align: right;height: 20px;">{{this.comp_amt}}</td>
+                    <td class="td" style="width: 30%; text-align: right;height: 20px;">{{this.comp_amt_ar}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        </td>
+    </tr>
+    <tr>
+        <td style="width: 60%;">
+        <table border="0" cellspacing="0" class="e-rte-table" style="border-collapse:collapse;float:left;width:100%;">
+            <tbody>
+                <tr>
+                    <td class="td" style="width: 60%;height:22px;">Gross Earning (A)</td>
+                    <td class="td" style="width: 40%;height:22px;text-align: right;">{{total_earning}}</td>
+                </tr>
+            </tbody>
+        </table>
+        </td>
+        <td style="width: 40%;">
+        <table border="0" cellspacing="0" class="e-rte-table" style="border-collapse:collapse;float:right;width:100%;">
+            <tbody>
+                <tr>
+                    <td class="td" style="width: 70%;height:22px;">Gross Deduction (B)</td>
+                    <td class="td" style="width: 30%;height:22px;text-align: right;">{{total_deduction}}</td>
+                </tr>
+            </tbody>
+        </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="td" style="width: 60%;height:22px;">Net Pay (A-B)</td>
+        <td class="td" style="width: 40%;height:22px;text-align: right;">{{net_pay}}</td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+<p>&nbsp;</p>
+
+<table border="0" cellpadding="0" cellspacing="0" class="e-rte-table" style="border-collapse:collapse;width:100%;">
+<thead>
+    <tr>
+        <th colspan="4" style="border: 1px solid #ccc;background-color: rgb(221, 221, 221);">Reimbursements</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td class="td" style="width: 25%; text-align: center; background-color: #dddddd;">Description</td>
+        <td class="td" style="width: 25%; text-align: center; background-color: #dddddd;">Entitlement</td>
+        <td class="td" style="width: 25%; text-align: center; background-color: #dddddd;">Amount</td>
+        <td class="td" style="width: 25%; text-align: center; background-color: #dddddd;">Arrear</td>
+    </tr>
+    {{#each reimbursements}}
+    <tr>
+        <td class="td" style="width: 25%;">{{this.comp_desc}}</td>
+        <td class="td" style="width: 25%; text-align: right;">{{this.comp_rate}}</td>
+        <td class="td" style="width: 25%; text-align: right;">{{this.comp_amt}}</td>
+        <td class="td" style="width: 25%; text-align: right;">{{this.comp_amt_ar}}</td>
+    </tr>
+    {{/each}}
+</tbody>
+</table>
+
+<div>&nbsp;
+<table border="0" cellspacing="0" style="width:100%;">
+<tbody>
+    <tr>
+        <td class="td">Total Net Pay</td>
+        <td class="td" style="text-align: right;">{{total_net_pay}}</td>
+    </tr>
+</tbody>
+</table>
+<br />
+Note : This is a system generated document and does not require any stamp or signature.<br />
+&nbsp;</div>
