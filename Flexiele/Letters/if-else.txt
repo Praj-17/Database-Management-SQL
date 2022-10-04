@@ -1,0 +1,6 @@
+{{#if check_appr}}
+Block of code to render
+{{/if}}
+// where check_appr is a bool (0,1)
+offer_esop_value_in_inr
+offer_esop_series
