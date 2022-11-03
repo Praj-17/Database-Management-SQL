@@ -1,0 +1,77 @@
+<div style="text-align: center;">
+    <div style="text-align: left;"><span style="line-height:1.38"><b id="docs-internal-guid-46305a1e-7fff-3b7d-ecd4-49b27a74473a" style="font-weight:normal"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:400"><span style="font-style:normal"><span style="font-variant:normal"><span style="text-decoration:none"><span style="vertical-align:baseline"><span style="white-space:pre-wrap">Dear {{apr_name}}, </span></span></span></span></span></span></span></span></span></b></span><br />
+    <br />
+    <span style="line-height:1.38"><b id="docs-internal-guid-46305a1e-7fff-3b7d-ecd4-49b27a74473a" style="font-weight:normal"><span style="font-size:11pt"><span style="font-family:Arial"><span style="color:#000000"><span style="font-weight:400"><span style="font-style:normal"><span style="font-variant:normal"><span style="text-decoration:none"><span style="vertical-align:baseline"><span style="white-space:pre-wrap">&nbsp;&nbsp;Your approval is requested for releasing the offer letter to {{cand_name}}. Details of the offer are given below.</span></span></span></span></span></span></span></span></span></b></span></div>
+    &nbsp;
+    
+    <div align="left" dir="ltr">
+    <table border="1" cellpadding="0" cellspacing="0" dir="ltr">
+        <colgroup>
+            <col width="232" />
+            <col width="293" />
+            <col width="519" />
+        </colgroup>
+        <tbody>
+            <tr>
+                <td>Name</td>
+                <td colspan="2" rowspan="1">{{cand_name}}</td>
+            </tr>
+            <tr>
+                <td>Current CTC</td>
+                <td colspan="2" rowspan="1">{{current_ctc}}</td>
+            </tr>
+            <tr>
+                <td>Offered CTC</td>
+                <td colspan="2" rowspan="1">
+                <span>
+                    <span>
+                    Rs {{offered_fixed_ctc}} Fixed
+                    </span>
+                    
+                    {{#if jb}}
+                    <span>
+                     + Rs.&nbsp;{{joining_bonus}}&nbsp;Joining Bonus 
+                    </span>
+                     {{/if}}
+                     <span>
+                        {{#if rb}}
+                        </span>
+                     <span>
+                     + Rs. {{retention_bonus}} Retention Bonus
+                    </span>
+                     {{/if}}
+
+                     <span>
+                        {{#if vp}}
+                        </span>
+                     <span>
+                     + {{offered_var_pay}} Variable Pay
+                     </span>
+                     {{/if}}
+                </span>
+                </td>
+            </tr>
+            <tr>
+                <td>DOJ</td>
+                <td colspan="2" rowspan="1">{{doj}}</td>
+            </tr>
+            <tr>
+                <td>Current Designation</td>
+                <td colspan="2" rowspan="1">{{curr_designation}}</td>
+            </tr>
+            <tr>
+                <td>Offered Designation</td>
+                <td colspan="2" rowspan="1">{{offered_designation}}</td>
+            </tr>
+            <tr>
+                <td>Reporting Manager</td>
+                <td colspan="2" rowspan="1">{{apr_name}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <br />
+    &nbsp;</div>
+    
+    <div align="left" style="text-align: left">{{actionDiv}}</div>
+    
