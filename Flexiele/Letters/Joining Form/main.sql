@@ -17,6 +17,7 @@ na.a5 'nationality',
 ge.a4 'gender',
 blood_group.a4 'blood_group', 
 p.a3 	'adhaar',
+mar.a4 'marital_status',
   p.a4 	'pan',  
   elg.a3 'uan',
   elg.a5 'pf',
@@ -33,6 +34,7 @@ spouse.a3 as  'spouse_name',
 org_le.a3 'legal_entity', 
 org_dp.a3 'department',
 org_loc.a3 'location',
+dsg.a3 'designation',
 c.a7 'perm_address',
 c.a12  'cur_adress',
 c.a13 'city',
@@ -43,13 +45,13 @@ t.a11 as 'official_email',
 pre.a3 as 'prev_comp',
 pre.a7 as 'prev_comp_address',
 pre.a15 as 'prev_comp_phone',
-pre.a9 as 'industry_type',
+ind.a4 as 'industry_type',
 pre.a13 as 'prev_desg',
-pre.a4 as 'prev_doj',
-pre.a5 as 'prev_lwd',
+date_format(pre.a4, "%d /%m /%y") as 'prev_doj',
+date_format(pre.a5, "%d /%m /%y")as 'prev_lwd',
 "" as 'prev_change_reason',
 "" as 'prev_supervisor_name_dsg',
-"" as 'company_name_address',
+concat_ws(",", org_le.a3,org_loc_d.a11 ) as 'company_name_address',
 "" as 'post_held_if_any',
 "" as 'appointment_date',
 "" as 'village',
@@ -68,11 +70,20 @@ left join fe_hrt_emp_summary_t summ
  on (e.a3 = summ.a3 and e.cl = summ.cl)
  left JOIN fe_hri_emp_prev_employment_t pre
 	on (pre.a2 = p.a1 and e.cl = pre.cl and pre.a6 = 1)
+left join fe_glb_lookup_m ind
+	on (pre.a9 = ind.a3 and pre.cl = ind.cl AND ind.a2 = 1000004
+   AND ind.a7 = 1  )
+LEFT JOIN fe_org_unit_m dsg
+	on (dsg.a1 = e.ou10 and dsg.cl = e.cl)
 LEFT JOIN fe_hri_emp_family_t f 
     ON (f.a2 = e.a2 
       AND f.a5 = 2 
       AND f.cl = e.cl
       and f.a12 = 1)
+LEFT JOIN fe_glb_lgs_lookup_m mar
+	on (mar.a3 = p.a11 
+	AND mar.a2=2000002
+   AND mar.a7 = 1 )
 LEFT JOIN fe_hri_emp_family_t mother 
     ON (mother.a2 = e.a2 
       AND mother.a5 = 3 
@@ -97,7 +108,7 @@ left join fe_hri_emp_contact_t as c on (p.a1 = c.a2 and p.a1 = c.a2)
 LEFT JOIN fe_org_unit_m org_loc
     ON (e.ou9 = org_loc.a1)
 LEFT JOIN fe_org_unit_detail_m org_loc_d
-    ON (org_loc_d.a2 = org_loc.a1)
+    ON (org_loc_d.a2 = e.ou2)
 LEFT JOIN fe_org_unit_m org_le
     ON (e.ou2 = org_le.a1)
 LEFT JOIN fe_hrt_emp_legal_info_t elg
@@ -115,7 +126,7 @@ LEFT JOIN fe_hrt_emp_legal_info_t elg
     and p.a20 = rel.a3 )
 LEFT JOIN fe_org_unit_m org_dp
     ON (e.ou6 = org_dp.a1)
-where e.cl =1
+where e.cl ={session.clientId}
 and e.a4 not in ('CRF01660', 'OTP01824', '11', '13', '1','OTP1630', 'OTPx030', 'OTP01688')
   AND t.a11 NOT LIKE '%flexiele%'
-and e.a3 = 52728
+and e.a3 = {{emp_id}}
