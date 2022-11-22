@@ -31,6 +31,7 @@ LEFT JOIN fe_pyt_sal_comp_m jb
         AND jb.a5 = 9)
 LEFT JOIN fe_pyt_sal_comp_m comp 
 	ON(nj.a4 = comp.a1 AND comp.a4 = 'JOIN_BONUS')
+
 LEFT JOIN fe_cfg_lookup_m freq
  on (ctc.a27 = freq.a3
 	and freq.a2 = 4000192
