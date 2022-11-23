@@ -20,7 +20,7 @@ SELECT
 	emps.a8 AS `performer_email`,
       IFNULL(appl.a13,jt.a3) 'job_title',
 	date_format(cand.a19, "%d-%b-%Y") 'doj',
-      concat("+", country.a9, con.a4) 'cand_phone',
+      concat("+", country.a9, con.a4) 'cand_phone_no',
         re.a8    'recruiter_email',
 		re.a4 'recruiter_name',
         IFNULL(aprs2.a4,aprs1.a4) apr_name,
@@ -52,5 +52,5 @@ FROM
   LEFT JOIN fe_hrt_emp_summary_t aprs2 
     ON (aprs2.a3 = apr.a5) 
 WHERE 1
-AND tx_per.cl = 1
-AND tx_per.a1 = {{performer_id}}
+AND tx_per.cl =  1
+-- AND tx_per.a1 = 50185
