@@ -16,26 +16,23 @@
 <ol start="3">
 	<li style="margin-top:12px; text-align:justify; margin-left:8px"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Compensation: </span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Your total annual CTC has been set at Rs. {{offer_annual_amount}}, your fixed CTC will be Rs. {{offer_cf_fixed}}.</span></span></span></span></span></li>
 </ol>
-
 {{#if vp}}
+
 <ol start="4">
 	<li style="margin-top:12px; text-align:justify; margin-left:8px"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Variable Pay:</span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121"> INR {{offer_cf_variable_amount}} Variable will be paid Quarterly on performance basis.</span></span></span></span></span></li>
 </ol>
-{{/if}}
+{{/if}} {{#if jb}}
 
-{{#if jb}}
 <ol start="5">
 	<li style="margin-top:12px; text-align:justify; margin-left:8px"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Joining Bonus: </span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">In addition to the offered CTC,<b> </b>You will be paid a joining bonus of INR {{offer_cf_joining_bonus_amount}}. The joining bonus amount will be subject to recovery, in case you leave the company before 1 year.</span></span></span></span></span></li>
 </ol>
-{{/if}}
+{{/if}} {{#if rb}}
 
-{{#if rb}}
 <ol start="6">
 	<li style="margin-top:12px; text-align:justify; margin-left:8px"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">&nbsp;Retention Bonus: </span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">You will be paid a retention bonus of INR {{retention_bonus}}.&nbsp; Retention bonus will be paid {{offer_variable_pay_frequency}} basis subject to tenure completion.</span></span></span></span></span></li>
 </ol>
-{{/if}}
+{{/if}} {{#if esop}}
 
-{{#if esop}}
 <ol start="7">
 	<li style="margin-top:12px; text-align:justify; margin-left:8px"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">ESOPS: </span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">You will be entitled for INR {{offer_esop_value_in_inr}}&nbsp; worth of ESOPS of the company at Series {{offer_esop_series}} valuation at the time of your joining.</span></span></span></span></span>&nbsp; &nbsp;<span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">(The detailed compensation structure is on the next page, Annexure I).</span></span></span></span></span></li>
 </ol>
@@ -60,19 +57,18 @@
 <p>&nbsp;</p>
 
 <p style="margin-left: 40px;"><span style="font-size:11pt"><span style="line-height:10.15pt"><span style="text-autospace:none"><span style="font-family:Calibri,&quot;"><span lang="EN-US" style="font-size:12.0pt"><span style="color:#231f20">&nbsp;Name:&nbsp;<strong> {{applicant_name}}</strong></span></span></span></span></span></span><br />
-<span style="font-size:11pt; "><span style="line-height:30pt"><span style="text-autospace:none"><span style="font-family:Calibri,&quot;"><span lang="EN-US" style="font-size:12.0pt"><span style="color:#231f20">Designation: </span></span><span style="font-size:10.5pt"><span style="background:white"><span style="font-family:&quot;Segoe UI&quot;,&quot;"><span style="color:#000000; font-weight: bold;">{{job_title}}</span></span></span></span></span></span></span></span></p>
-
-<p style="margin-left: 40px;"><span style="font-size:14px;"><em>Department: {{department}}</em></span><br />
+<span style="font-size:11pt; "><span style="line-height:30pt"><span style="text-autospace:none"><span style="font-family:Calibri,&quot;"><span lang="EN-US" style="font-size:12.0pt"><span style="color:#231f20">Designation: </span></span><span style="font-size:10.5pt"><span style="background:white"><span style="font-family:&quot;Segoe UI&quot;,&quot;"><span style="color:#000000; font-weight: bold;">{{job_title}}</span></span></span></span></span></span></span></span><br />
+<span style="font-size:14px;"><em>Department: {{department}}</em></span><br />
 &nbsp;</p>
 
-<p style="margin-left: 80px;"><span style="font-size:11pt"><span style="line-height:10.15pt"><span style="text-autospace:none"><span style="font-family:Calibri,&quot;"><b><span style="background:white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Proposed Salary Structures</u></span></b></span></span></span></span></p>
+<p style="margin-left: 200px;"><span style="font-size:11pt"><span style="line-height:10.15pt"><span style="text-autospace:none"><span style="font-family:Calibri,&quot;"><b><span style="background:white">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Proposed Salary Structures</u></span></b></span></span></span></span></p>
 </div>
 
-<table style="border:none; border-collapse:collapse; margin-left: 50px" width="500">
+<table style="border:none; border-collapse:collapse; margin-left: 50px" width="80%">
 	<colgroup>
-		<col width="160" />
-		<col width="160" />
-		<col width="160" />
+		<col width="60%" />
+		<col width="60%" />
+		<col width="60%" />
 	</colgroup>
 	<tbody>
 		<tr>
@@ -80,7 +76,7 @@
 			<p style="line-height:1.3800000000000001; text-align:center"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#000000"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">Components</span></span></span></span></span></span></span></span></p>
 			</td>
 			<td style="border-bottom:1px solid #000000; vertical-align:top; padding:0px 7px 0px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000; width:219px; ">
-			<p style="line-height:1.3800000000000001; text-align:center"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#000000"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none; text-align:right">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Annual</span></span></span></span></span></span></span></span></p>
+			<p style="line-height:1.3800000000000001; text-align:center"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#000000"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none; text-align:center">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Annual</span></span></span></span></span></span></span></span></p>
 			</td>
 		</tr>
 		{{#each salary}}
@@ -89,7 +85,7 @@
 			<p style="line-height:1.3800000000000001"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#000000"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none">{{this.component}}</span></span></span></span></span></span></span></span></p>
 			</td>
 			<td style="border-bottom:1px solid #000000; vertical-align:top; padding:0px 7px 0px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000; width:219px">
-			<p style="line-height:1.3800000000000001; text-indent:36pt; text-align:right"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#000000"><span style="background-color:#ffffff"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none">{{this.annual}}</span></span></span></span></span></span></span></span></span></p>
+			<p style="line-height:1.3800000000000001; text-indent:36pt; text-align:center"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#000000"><span style="background-color:#ffffff"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none">{{this.annual}}</span></span></span></span></span></span></span></span></span></p>
 			</td>
 		</tr>
 		{{/each}}{{#each gross_sal}}
@@ -98,7 +94,7 @@
 			<p style="line-height:1.3800000000000001"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#000000"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">Gross Salary&nbsp;</span></span></span></span></span></span></span></span></p>
 			</td>
 			<td style="border-bottom:1px solid #000000; vertical-align:top; padding:0px 7px 0px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000; width:219px">
-			<p style="line-height:1.3800000000000001; text-indent:36pt; text-align:right"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#000000"><span style="background-color:#ffffff"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">{{this.annual}}</span></span></span></span></span></span></span></span></span></p>
+			<p style="line-height:1.3800000000000001; text-indent:36pt; text-align:center"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#000000"><span style="background-color:#ffffff"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">{{this.annual}}</span></span></span></span></span></span></span></span></span></p>
 			</td>
 		</tr>
 		{{/each}}
@@ -113,7 +109,7 @@
 			<p style="line-height:1.3800000000000001"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#000000"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none">{{this.component}}</span></span></span></span></span></span></span></span></p>
 			</td>
 			<td style="border-bottom:1px solid #000000; vertical-align:top; padding:0px 7px 0px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000; width:219px">
-			<p style="line-height:1.3800000000000001; text-indent:36pt; text-align:right"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#222222"><span style="background-color:#ffffff"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none">{{this.annual}}</span></span></span></span></span></span></span></span></span></p>
+			<p style="line-height:1.3800000000000001; text-indent:36pt; text-align:center"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#222222"><span style="background-color:#ffffff"><span style="font-weight:400"><span style="font-style:normal"><span style="text-decoration:none">{{this.annual}}</span></span></span></span></span></span></span></span></span></p>
 			</td>
 		</tr>
 		{{/each}}{{#each deductions}}
@@ -122,7 +118,7 @@
 			<p style="line-height:1.3800000000000001"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#000000"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">Total Employer Deduction</span></span></span></span></span></span></span></span></p>
 			</td>
 			<td style="border-bottom:1px solid #000000; vertical-align:top; padding:0px 7px 0px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000; width:219px">
-			<p style="line-height:1.3800000000000001; text-indent:36pt; text-align:right"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#222222"><span style="background-color:#ffffff"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">{{this.annual}}</span></span></span></span></span></span></span></span></span></p>
+			<p style="line-height:1.3800000000000001; text-indent:36pt; text-align:center"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#222222"><span style="background-color:#ffffff"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">{{this.annual}}</span></span></span></span></span></span></span></span></span></p>
 			</td>
 		</tr>
 		{{/each}}
@@ -131,7 +127,7 @@
 			<p style="line-height:1.3800000000000001"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#000000"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">Total Fixed CTC</span></span></span></span></span></span></span></span></p>
 			</td>
 			<td style="border-bottom:1px solid #000000; vertical-align:top; padding:0px 7px 0px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000; width:219px">
-			<p style="line-height:1.3800000000000001; text-indent:36pt; text-align:right"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#222222"><span style="background-color:#ffffff"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">{{offer_cf_fixed}}</span></span></span></span></span></span></span></span></span></p>
+			<p style="line-height:1.3800000000000001; text-indent:36pt; text-align:center"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#222222"><span style="background-color:#ffffff"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">{{offer_cf_fixed}}</span></span></span></span></span></span></span></span></span></p>
 			</td>
 		</tr>
 		{{#if offer_cf_variable_amount}}
@@ -140,7 +136,7 @@
 			<p style="line-height:1.3800000000000001"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#000000"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">Variable</span></span></span></span></span></span></span></span></p>
 			</td>
 			<td style="border-bottom:1px solid #000000; vertical-align:top; padding:0px 7px 0px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000; width:219px">
-			<p style="line-height:1.3800000000000001; text-indent:36pt; text-align:right"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#222222"><span style="background-color:#ffffff"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">{{offer_cf_variable_amount}}</span></span></span></span></span></span></span></span></span></p>
+			<p style="line-height:1.3800000000000001; text-indent:36pt; text-align:center"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#222222"><span style="background-color:#ffffff"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">{{offer_cf_variable_amount}}</span></span></span></span></span></span></span></span></span></p>
 			</td>
 		</tr>
 		{{/if}}
@@ -149,7 +145,7 @@
 			<p style="line-height:1.3800000000000001"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#000000"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">Total CTC</span></span></span></span></span></span></span></span></p>
 			</td>
 			<td style="border-bottom:1px solid #000000; vertical-align:top; padding:0px 7px 0px 7px; border-top:1px solid #000000; border-right:1px solid #000000; border-left:1px solid #000000; width:219px">
-			<p style="line-height:1.3800000000000001; text-indent:36pt; text-align:right"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#222222"><span style="background-color:#ffffff"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">{{offer_annual_amount}}</span></span></span></span></span></span></span></span></span></p>
+			<p style="line-height:1.3800000000000001; text-indent:36pt; text-align:center"><span style="overflow:hidden"><span style="overflow-wrap:break-word"><span style="font-size:10pt; font-variant:normal; white-space:pre-wrap"><span style="font-family:Calibri,sans-serif"><span style="color:#222222"><span style="background-color:#ffffff"><span style="font-weight:700"><span style="font-style:normal"><span style="text-decoration:none">{{offer_annual_amount}}</span></span></span></span></span></span></span></span></span></p>
 			</td>
 		</tr>
 	</tbody>
@@ -159,8 +155,8 @@
 <ul>
 	<li style="list-style-type:none">
 	<ul style="list-style-type:disc">
-		<li style="margin-right:15px; text-align:justify"><span style="font-size:12pt"><span style="line-height:98%"><span style="tab-stops:55.4pt 55.45pt"><span style="text-autospace:none"><span style="font-family:Calibri,sans-serif">Income tax will <span style="letter-spacing:-.15pt">be </span>deducted at source, <span style="letter-spacing:-.25pt">if </span>applicable, as per applicable statutory rules/policies of the Company</span></span></span></span></span></li>
-		<li style="margin-top:1px; margin-right:63px; text-align:justify"><span style="font-size:12pt"><span style="line-height:96%"><span style="tab-stops:55.4pt 55.45pt"><span style="text-autospace:none"><span style="font-family:Calibri,sans-serif">Remuneration related information <span style="letter-spacing:-.25pt">is </span>strictly confidential. It <span style="letter-spacing:-.15pt">should </span>not <span style="letter-spacing:-.15pt">be </span>shared with anyone other than your reporting manager.</span></span></span></span></span></li>
+		<li style="margin-right:15px; text-align:justify"><span style="font-size:12pt"><span style="line-height:98%"><span style="tab-stops:55.4pt 55.45pt"><span style="text-autospace:none"><span style="font-family:Calibri,sans-serif">Income tax will be deducted at source, if applicable, as per applicable statutory rules/policies of the Company</span></span></span></span></span></li>
+		<li style="margin-top:1px; margin-right:63px; text-align:justify"><span style="font-size:12pt"><span style="line-height:96%"><span style="tab-stops:55.4pt 55.45pt"><span style="text-autospace:none"><span style="font-family:Calibri,sans-serif">Remuneration related information is strictly confidential. It should not be shared with anyone other than your reporting manager.</span></span></span></span></span></li>
 		<li style="margin-top:1px; margin-right:63px; text-align:justify"><span style="font-size:12pt"><span style="line-height:96%"><span style="tab-stops:55.4pt 55.45pt"><span style="text-autospace:none"><span style="font-family:Calibri,sans-serif">Gratuity is governed by payment of Gratuity act and would be paid to employees completing 5 years with.</span></span></span></span></span></li>
 	</ul>
 	</li>
