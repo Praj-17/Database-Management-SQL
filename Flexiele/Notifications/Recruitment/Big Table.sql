@@ -1,5 +1,8 @@
 SELECT 
   tx_per.a1 AS 'performer_id',
+  tx_per.a5 as  'performer_emp_id',
+  tx_per.a6 as 'request_id',
+  tx.a22 as 'task_group_id',
   CONCAT(
     IFNULL(cand.a5, ''),
     IF(

@@ -53,4 +53,4 @@ FROM
     ON (aprs2.a3 = apr.a5) 
 WHERE 1
 AND tx_per.cl =  1
--- AND tx_per.a1 = 50185
+-- AND tx_per.a1 = {{performer_id}}
