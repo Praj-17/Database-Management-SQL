@@ -1,3 +1,4 @@
+<div style="margin-left:20px ;margin-right:20px">
 <div style="text-align: center;"><span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><b><u><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Letter of Intent</span></span></span></u></b></span></span></div>
 <br />
 <span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Dear {{applicant_name}},</span></span></span></span></span><br />
@@ -5,42 +6,22 @@
 <span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">With reference to our discussion, we take pleasure in offering you the role in our organization.</span></span></span></span></span><br />
 <span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">The following is a summary of terms and conditions applicable to your association with {{legal_entity}}. Once you accept this offer, the terms will be crystalized in the form of an employment agreement.</span></span></span></span></span><br />
 &nbsp;
-<ol>
-	<li style="margin-top:12px; text-align:justify; margin-left:8px"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Position: </span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">You will be employed in a full-time position, as &quot;{{job_title}} &ndash; {{department}}&quot;</span></span></span></span></span></li>
-</ol>
 
-<ol start="2">
-	<li style="margin-top:12px; text-align:justify; margin-left:8px"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Date of Joining:</span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121"> Your date of joining the employment will commence on or before {{offer_date_of_joining}} after which date we shall have the unilateral right to terminate this offer. </span></span></span></span></span></li>
-</ol>
-
-<ol start="3">
-	<li style="margin-top:12px; text-align:justify; margin-left:8px"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Compensation: </span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Your total annual CTC has been set at Rs. {{offer_annual_amount}}, your fixed CTC will be Rs. {{offer_cf_fixed}}.</span></span></span></span></span></li>
-</ol>
-{{#if vp}}
-
-<ol start="4">
-	<li style="margin-top:12px; text-align:justify; margin-left:8px"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Variable Pay:</span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121"> INR {{offer_cf_variable_amount}} Variable will be paid Quarterly on performance basis.</span></span></span></span></span></li>
-</ol>
-{{/if}} {{#if jb}}
-
-<ol start="5">
-	<li style="margin-top:12px; text-align:justify; margin-left:8px"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Joining Bonus: </span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">In addition to the offered CTC,<b> </b>You will be paid a joining bonus of INR {{offer_cf_joining_bonus_amount}}. The joining bonus amount will be subject to recovery, in case you leave the company before 1 year.</span></span></span></span></span></li>
-</ol>
-{{/if}} {{#if rb}}
-
-<ol start="6">
-	<li style="margin-top:12px; text-align:justify; margin-left:8px"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">&nbsp;Retention Bonus: </span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">You will be paid a retention bonus of INR {{retention_bonus}}.&nbsp; Retention bonus will be paid {{offer_variable_pay_frequency}} basis subject to tenure completion.</span></span></span></span></span></li>
-</ol>
-{{/if}} {{#if esop}}
-
-<ol start="7">
-	<li style="margin-top:12px; text-align:justify; margin-left:8px"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">ESOPS: </span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">You will be entitled for INR {{offer_esop_value_in_inr}}&nbsp; worth of ESOPS of the company at Series {{offer_esop_series}} valuation at the time of your joining.</span></span></span></span></span>&nbsp; &nbsp;<span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">(The detailed compensation structure is on the next page, Annexure I).</span></span></span></span></span></li>
-</ol>
-{{/if}}
-
-<ol start="8">
-	<li style="margin-top:12px; text-align:justify; margin-left:8px"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Confidential Information:</span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121"> You hereby represent and warrant that, at all times, you will maintain confidentiality with respect to all and any information relating to the Company (&ldquo;Confidential Information&rdquo;). You will not, either directly or indirectly, make any disclosure of Confidential Information to any third party, or make any use of Confidential Information, for your own benefit or the benefit of any third party, without the Company&rsquo;s prior written consent. You shall maintain proper and secure custody of the Confidential Information to which you may be privy and shall use your best endeavours to prevent the use or disclosure of the Confidential Information by or to third parties.</span></span></span></span></span></li>
-</ol>
+<ul>
+	<li style="margin-top: 12px; text-align: justify; margin-left: 8px;"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Position: </span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">You will be employed in a full-time position, as &quot;{{job_title}} &ndash; {{department}}&quot;</span></span></span></span></span></li>
+	<li style="margin-top: 12px; text-align: justify; margin-left: 8px;"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Date of Joining:</span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121"> Your date of joining the employment will commence on or before {{offer_date_of_joining}} after which date we shall have the unilateral right to terminate this offer.</span></span></span></span></span></li>
+	<li style="margin-top: 12px; text-align: justify; margin-left: 8px;"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Compensation: </span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Your total annual CTC has been set at Rs. {{offer_annual_amount}}, your fixed CTC will be Rs. {{offer_cf_fixed}}.</span></span></span></span></span></li>
+	{{#if vp}}
+	<li style="margin-top: 12px; text-align: justify; margin-left: 8px;"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Variable Pay:</span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121"> INR {{offer_cf_variable_amount}} Variable will be paid Quarterly on performance basis.</span></span></span></span></span>{{/if}} 
+	</li>
+	{{#if jb}}
+	<li style="margin-top: 12px; text-align: justify; margin-left: 8px;"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Joining Bonus: </span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">In addition to the offered CTC,<b> </b>You will be paid a joining bonus of INR {{offer_cf_joining_bonus_amount}}. The joining bonus amount will be subject to recovery, in case you leave the company before 1 year.</span></span></span></span></span>{{/if}}
+	</li>
+	{{#if rb}}
+	<li style="margin-top: 12px; text-align: justify; margin-left: 8px;"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">&nbsp;Retention Bonus: </span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">You will be paid a retention bonus of INR {{retention_bonus}}.&nbsp; Retention bonus will be paid {{offer_variable_pay_frequency}} basis subject to tenure completion.</span></span></span></span></span>{{/if}} </li>{{#if esop}}
+	<li style="margin-top: 12px; text-align: justify; margin-left: 8px;"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">ESOPS: </span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">You will be entitled for INR {{offer_esop_value_in_inr}}&nbsp; worth of ESOPS of the company at Series {{offer_esop_series}} valuation at the time of your joining.</span></span></span></span></span>&nbsp; &nbsp;<span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">(The detailed compensation structure is on the next page, Annexure I).</span></span></span></span></span></li> {{/if}}
+	<li style="margin-top: 12px; text-align: justify; margin-left: 8px;"><span style="font-size:12pt"><span style="font-family:Calibri,sans-serif"><b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">Confidential Information:</span></span></span></b><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121"> You hereby represent and warrant that, at all times, you will maintain confidentiality with respect to all and any information relating to the Company (&ldquo;Confidential Information&rdquo;). You will not, either directly or indirectly, make any disclosure of Confidential Information to any third party, or make any use of Confidential Information, for your own benefit or the benefit of any third party, without the Company&rsquo;s prior written consent. You shall maintain proper and secure custody of the Confidential Information to which you may be privy and shall use your best endeavours to prevent the use or disclosure of the Confidential Information by or to third parties.</span></span></span></span></span></li>
+</ul>
 <br />
 <span style="font-size:12pt"><span style="font-family:&quot;Times New Roman&quot;,serif"><span lang="EN-IN" style="font-size:10.5pt"><span style="font-family:&quot;Lato&quot;,sans-serif"><span style="color:#212121">We welcome you in our organization and trust what we could build a rewarding career for you in our company.</span></span></span></span></span><br />
 <br />
@@ -153,14 +134,10 @@
 &nbsp;
 
 <ul>
-	<li style="list-style-type:none">
-	<ul style="list-style-type:disc">
-
-		<li style="margin-right:15px; text-align:justify"><span style="font-size:12pt"><span style="line-height:98%"><span style="tab-stops:55.4pt 55.45pt"><span style="text-autospace:none"><span style="font-family:Calibri,sans-serif">Income tax will be deducted at source, if applicable, as per applicable statutory rules/policies of the Company</span></span></span></span></span></li>
-		<li style="margin-right:15px;margin-top:1px; text-align:justify"><span style="font-size:12pt"><span style="line-height:96%"><span style="tab-stops:55.4pt 55.45pt"><span style="text-autospace:none"><span style="font-family:Calibri,sans-serif">Remuneration related information is strictly confidential. It should not be shared with anyone other than your reporting manager.</span></span></span></span></span></li>
-		<li style="margin-right:15px;margin-top:1px; text-align:justify"><span style="font-size:12pt"><span style="line-height:96%"><span style="tab-stops:55.4pt 55.45pt"><span style="text-autospace:none"><span style="font-family:Calibri,sans-serif">Gratuity is governed by payment of Gratuity act and would be paid to employees completing 5 years with.</span></span></span></span></span></li>
-	</ul>
-	</li>
+	<li style="list-style-type:none">&nbsp;</li>
+	<li style="margin-right:15px; text-align:justify"><span style="font-size:12pt"><span style="line-height:98%"><span style="tab-stops:55.4pt 55.45pt"><span style="text-autospace:none"><span style="font-family:Calibri,sans-serif">Income tax will be deducted at source, if applicable, as per applicable statutory rules/policies of the Company</span></span></span></span></span></li>
+	<li style="margin-right:15px;margin-top:1px; text-align:justify"><span style="font-size:12pt"><span style="line-height:96%"><span style="tab-stops:55.4pt 55.45pt"><span style="text-autospace:none"><span style="font-family:Calibri,sans-serif">Remuneration related information is strictly confidential. It should not be shared with anyone other than your reporting manager.</span></span></span></span></span></li>
+	<li style="margin-right:15px;margin-top:1px; text-align:justify"><span style="font-size:12pt"><span style="line-height:96%"><span style="tab-stops:55.4pt 55.45pt"><span style="text-autospace:none"><span style="font-family:Calibri,sans-serif">Gratuity is governed by payment of Gratuity act and would be paid to employees completing 5 years with.</span></span></span></span></span></li>
 </ul>
 
 <ul>
@@ -171,4 +148,5 @@
 	</li>
 </ul>
 <br />
+</div>
 &nbsp;
