@@ -45,8 +45,6 @@ FROM
   LEFT JOIN fe_hrt_emp_summary_t re 
     ON (appl.a14 = re.a3) 
 WHERE 1 
---   AND tx_per.cl = {session.clientId} 
---   AND tx_per.a5 = {{performer_id}}
---    AND tx.a6 = {{request_id}}
---   and tx.a22 = {{task_group_id}}    #add this in case of pre offer initiate and onboarding initiate mails
-GROUP BY  tx_per.a5  #add this in case of pre offer initiate and onboarding initiate mail
+  AND tx_per.cl = 1
+  AND tx_per.a5 = {{performer_id}}
+   AND tx.a6 = {{request_id}}
